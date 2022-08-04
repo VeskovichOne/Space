@@ -1,0 +1,53 @@
+using System;
+
+namespace cSharpSoftuni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double trip = double.Parse(Console.ReadLine());
+            int puzzles = int.Parse(Console.ReadLine());
+            int dolls = int.Parse(Console.ReadLine());
+            int bears = int.Parse(Console.ReadLine());
+            int minions = int.Parse(Console.ReadLine());
+            int trucks = int.Parse(Console.ReadLine());
+
+            double puzzlesPrice = 2.6;
+            double dollsPrice = 3;
+            double bearsPrice = 4.1;
+            double minionsPrice = 8.2;
+            double trucksPrice = 2;
+            double sum = puzzles * puzzlesPrice + dolls * dollsPrice + bears * bearsPrice + minions * minionsPrice + trucks * trucksPrice;
+            double toysSum = puzzles + dolls + bears + minions + trucks;
+            double discount = 0;
+            if (toysSum>=50)
+            {
+                discount = sum * 0.25;
+            }
+            else
+            {
+                discount = 0;
+              
+            }
+            double finalSum = sum - discount;
+            double rent = finalSum * 0.1;
+            double win = finalSum - rent;
+            double left = win - trip;
+            if (win >=trip)
+            {
+                Console.WriteLine($"Yes! {left:f2} lv left.");
+            }
+            else if (trip >= win)
+            {   
+                left = Math.Abs(left);
+                Console.WriteLine($"Not enough money! {left:f2} lv needed.");
+            }
+           
+            
+
+
+
+        }
+    }
+}
